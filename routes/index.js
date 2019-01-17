@@ -11,12 +11,15 @@ const request = require('request');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  request.get(nowPlayingUrl,(err,resp,body)=>{
-    console.log(typeof(body));
-    const parsedData = JSON.parse(body);
-    console.log(parsedData);
+  request.get(nowPlayingUrl,(error,response,body)=>{
+    const parsedData = JSON.parse(body); //We now have the data from the Movie Database API
+    //res.json(parsedData);
+    res.render('nowplaying',{
+      parsedData: parsedData.results,
+      imgBaseUrl: imgBaseUrl
+    });
   });
-  res.render('index', { title: 'Express' });
+  //res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
