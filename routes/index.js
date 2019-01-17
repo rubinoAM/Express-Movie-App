@@ -6,7 +6,7 @@ const apiBaseUrl = 'http://api.themoviedb.org/3';
 const imgBaseUrl = 'http://image.tmdb.org/t/p/w300';
 const nowPlayingUrl = `${apiBaseUrl}/movie/now_playing?api_key=${apiKey}`;
 
-//$.getJSON(nowPlayingUrl,()=>{});
+//$.getJSON(nowPlayingUrl,()=>{}); This doesn't work in node/express!
 const request = require('request');
 
 /* GET home page. */
