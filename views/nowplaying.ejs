@@ -5,6 +5,7 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://bootswatch.com/3/journal/bootstrap.min.css" />
     <style>
         img{
             height:40rem;
@@ -12,6 +13,25 @@
         }
         form{
             margin-bottom:2rem;
+        }
+        .form-inline{
+            position:relative;
+            top:1.375rem;
+        }
+
+        .form-inline .btn{
+            position:relative;
+            bottom:0.25rem;
+        }
+
+        @media screen and (max-width:460px){
+            .form-inline{
+                top:0;
+            }
+
+            .form-inline .btn{
+                bottom:0;
+            }
         }
     </style>
 </head>
