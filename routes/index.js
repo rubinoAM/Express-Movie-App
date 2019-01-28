@@ -5,6 +5,7 @@ const mysql = require('mysql');
 const config = require('../config');
 const connection = mysql.createConnection(config.db);
 connection.connect();
+const bcrypt = require('bcrypt-nodejs');
 
 const apiBaseUrl = 'http://api.themoviedb.org/3';
 const imgBaseUrl = 'http://image.tmdb.org/t/p/w300';
@@ -23,7 +24,6 @@ router.get('/', function(req, res, next) {
       imgBaseUrl: imgBaseUrl
     });
   });
-  //res.render('index', { title: 'Express' });
 });
 
 router.get('/search',function(req,res,next){
@@ -36,8 +36,16 @@ router.post('/search/movie',(req,res,next)=>{
   Query string data is in req.query
   Posted data is in req.body
   */
-  res.json(req.body);
-})
+  const movieTitle = req.body.movieTitle;
+  const searchUrl = `${apiBaseUrl}/search/movie?query=${movieTitle}&api_key=${config.apiKey}`;
+  request.get(searchUrl,(err,response,body)=>{
+    const parsedData = JSON.parse(body);
+    res.render('nowplaying',{
+      imgBaseUrl,
+      parsedData: parsedData.results
+    });
+  });
+});
 
 router.get('/login',(req,res,next)=>{
   res.render('login');
