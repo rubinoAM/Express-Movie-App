@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <style>
-        img{
-            height:40rem;
-            width:27.5rem;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h1>Search</h1>
-                <form>
-                    <input type="text" placeholder="ARF" />
-                    <input type="button" class="btn btn-primary" value="ARF" />
-                </form>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+<form action="/search/movie" method="post"> <!-- ACTION: Where to submit the form | METHOD: What type of http request (GET, POST, PUT, et cetera)-->
+    <input type="text" placeholder="ARF" name="movieTitle" /> <!-- name is what the variable will be called upon submission-->
+    <input type="submit" class="btn btn-primary" value="ARF" />
+</form>

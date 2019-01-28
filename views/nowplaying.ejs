@@ -10,13 +10,23 @@
             height:40rem;
             width:27.5rem;
         }
+        form{
+            margin-bottom:2rem;
+        }
     </style>
 </head>
 <body>
+    <% include navbar %>
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1>Your ip is <%= ip %></h1>
+                <h1>Search</h1>
+                <% include search %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <!--<h1>Your ip is <%= ip %></h1>-->
                 <% parsedData.forEach((movie)=>{ %>
                     <div class="col-xs-6 col-sm-4 col-md-3">
                         <img src="<%= imgBaseUrl + movie.poster_path%>" />
